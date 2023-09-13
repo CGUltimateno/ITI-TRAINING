@@ -1,0 +1,17 @@
+.nav-item{
+  padding: 0 10px;
+  margin-left: 10px;
+}
+.navbar-brand{
+  font-size: 2rem;
+  margin-left: 10px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.masthead {
+  height: 70vh;
+  min-height: 500px;
+  background-image: url('/assets/awa.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
