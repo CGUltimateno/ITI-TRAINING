@@ -1,0 +1,82 @@
+use FacultySystemDB
+db.createCollection("student")
+
+
+db.student.insertOne({
+"FirstName": "Ahmed",
+"LastName": "Mohamed",
+"Age":23,
+"Faculty": {
+"Name": "Faculty of Computer Science",
+"Address": "Helwan University"
+},
+"Grades": [
+    {
+"CourseName": "Algorithms",
+"Grade": "3.1",
+"Pass": true
+}],
+"IsFired": false
+})
+
+
+db.student.insertOne({
+"FirstName": "Mona",
+"LastName": "Mahmoud",
+"Age":21,
+"Faculty": {
+"Name": "Faculty of Computer Science",
+"Address": "Helwan University"
+},
+"Grades": [
+    {
+"CourseName": "Algorithms",
+"Grade": "3.1",
+"Pass": true
+}],
+"IsFired": false
+})
+
+
+db.student.insertOne({
+"FirstName": "Marawan",
+"LastName": "Ahmed",
+"Age":22,
+"Faculty": {
+"Name": "Faculty of Computer Science",
+"Address": "Helwan University"
+},
+"Grades": [
+    {
+"CourseName": "Algorithms",
+"Grade": "2.8",
+"Pass": true
+}],
+"IsFired": false
+})
+
+db.student.find({})
+
+db.student.find({FirstName: "Ahmed"})
+
+db.student.find({$or:[{FirstName:"Ahmed"},{LastName:"Ahmed"}]})
+
+db.student.find({FirstName:{$ne:"Ahmed"}})
+
+db.student.find({Age:{$lt: 21}})
+
+db.student.find({IsFired: true})
+
+db.student.find({Age:{$gt:21}, Faculty:{$ne:null}})
+
+db.student.find({FirstName:"nour"}, {FirstName:1, LastName:0, IsFired: true})
+
+db.student.update({FirstName: "Ahmed"}, {$set:{LastName: "Ali"}})
+
+db.student.updateOne({FirstName: "Ahmed"}, {$set:{LastName: "Ali"}}, {multi: true})
+
+db.student.deleteOne({IsFired: true})
+
+db.student.remove()
+
+db.dropDatabase()
